@@ -1,0 +1,268 @@
+.data
+.LC0:
+        .ascii  "playing 3 rounds\000"
+.LC1:
+        .ascii  "you lost 3 times, computer wins!\000"
+.text
+main:
+        daddiu  $sp,$sp,-48
+        sd      $31,40($sp)
+        sd      $fp,32($sp)
+        sd      $28,24($sp)
+        move    $fp,$sp
+        lui     $28,%hi(%neg(%gp_rel(main)))
+        daddu   $28,$28,$25
+        daddiu  $28,$28,%lo(%neg(%gp_rel(main)))
+        ld      $2,%got_page(.LC0)($28)
+        daddiu  $5,$2,%got_ofst(.LC0)
+        ld      $4,%got_disp(_ZSt4cout)($28)
+        ld      $2,%call16(_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc)($28)
+        move    $25,$2
+        nop
+
+        ld      $5,%got_disp(_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)($28)
+        move    $4,$2
+        ld      $2,%call16(_ZNSolsEPFRSoS_E)($28)
+        move    $25,$2
+        nop
+
+        sw      $0,0($fp)
+.L3:
+        lw      $2,0($fp)
+        slt     $2,$2,3
+        beq     $2,$0,.L2
+        nop
+
+        ld      $2,%got_disp(playRound())($28)
+        move    $25,$2
+        nop
+
+        lw      $2,0($fp)
+        addiu   $2,$2,1
+        sw      $2,0($fp)
+        b       .L3
+        nop
+
+.L2:
+        ld      $2,%got_page(.LC1)($28)
+        daddiu  $5,$2,%got_ofst(.LC1)
+        ld      $4,%got_disp(_ZSt4cout)($28)
+        ld      $2,%call16(_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc)($28)
+        move    $25,$2
+        nop
+
+        ld      $5,%got_disp(_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)($28)
+        move    $4,$2
+        ld      $2,%call16(_ZNSolsEPFRSoS_E)($28)
+        move    $25,$2
+        nop
+
+        move    $2,$0
+        move    $sp,$fp
+        ld      $31,40($sp)
+        ld      $fp,32($sp)
+        ld      $28,24($sp)
+        daddiu  $sp,$sp,48
+        j       $31
+        nop
+
+.LC2:
+        .ascii  "enter 1, 2, or 3, for rps\000"
+.LC3:
+        .ascii  "computer chooses paper, you loose\000"
+.LC4:
+        .ascii  "computer chooses scissors, you loose\000"
+.LC5:
+        .ascii  "computer chooses rock, you loose\000"
+.LC6:
+        .ascii  "you didn't a valid number. you forfeit and loose by defa"
+        .ascii  "ult\000"
+playRound():
+        daddiu  $sp,$sp,-48
+        sd      $31,40($sp)
+        sd      $fp,32($sp)
+        sd      $28,24($sp)
+        move    $fp,$sp
+        lui     $28,%hi(%neg(%gp_rel(playRound())))
+        daddu   $28,$28,$25
+        daddiu  $28,$28,%lo(%neg(%gp_rel(playRound())))
+        ld      $2,%got_page(.LC2)($28)
+        daddiu  $5,$2,%got_ofst(.LC2)
+        ld      $4,%got_disp(_ZSt4cout)($28)
+        ld      $2,%call16(_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc)($28)
+        move    $25,$2
+        nop
+
+        ld      $5,%got_disp(_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)($28)
+        move    $4,$2
+        ld      $2,%call16(_ZNSolsEPFRSoS_E)($28)
+        move    $25,$2
+        nop
+
+        move    $5,$fp
+        ld      $4,%got_disp(_ZSt3cin)($28)
+        ld      $2,%call16(_ZNSirsERi)($28)
+        move    $25,$2
+        nop
+
+        lw      $3,0($fp)
+        li      $2,1                        # 0x1
+        bne     $3,$2,.L6
+        nop
+
+        ld      $2,%got_page(.LC3)($28)
+        daddiu  $5,$2,%got_ofst(.LC3)
+        ld      $4,%got_disp(_ZSt4cout)($28)
+        ld      $2,%call16(_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc)($28)
+        move    $25,$2
+        nop
+
+        ld      $5,%got_disp(_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)($28)
+        move    $4,$2
+        ld      $2,%call16(_ZNSolsEPFRSoS_E)($28)
+        move    $25,$2
+        nop
+
+        b       .L10
+        nop
+
+.L6:
+        lw      $3,0($fp)
+        li      $2,2                        # 0x2
+        bne     $3,$2,.L8
+        nop
+
+        ld      $2,%got_page(.LC4)($28)
+        daddiu  $5,$2,%got_ofst(.LC4)
+        ld      $4,%got_disp(_ZSt4cout)($28)
+        ld      $2,%call16(_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc)($28)
+        move    $25,$2
+        nop
+
+        ld      $5,%got_disp(_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)($28)
+        move    $4,$2
+        ld      $2,%call16(_ZNSolsEPFRSoS_E)($28)
+        move    $25,$2
+        nop
+
+        b       .L10
+        nop
+
+.L8:
+        lw      $3,0($fp)
+        li      $2,3                        # 0x3
+        bne     $3,$2,.L9
+        nop
+
+        ld      $2,%got_page(.LC5)($28)
+        daddiu  $5,$2,%got_ofst(.LC5)
+        ld      $4,%got_disp(_ZSt4cout)($28)
+        ld      $2,%call16(_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc)($28)
+        move    $25,$2
+        nop
+
+        ld      $5,%got_disp(_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)($28)
+        move    $4,$2
+        ld      $2,%call16(_ZNSolsEPFRSoS_E)($28)
+        move    $25,$2
+        nop
+
+        b       .L10
+        nop
+
+.L9:
+        ld      $2,%got_page(.LC6)($28)
+        daddiu  $5,$2,%got_ofst(.LC6)
+        ld      $4,%got_disp(_ZSt4cout)($28)
+        ld      $2,%call16(_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc)($28)
+        move    $25,$2
+        nop
+
+        ld      $5,%got_disp(_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)($28)
+        move    $4,$2
+        ld      $2,%call16(_ZNSolsEPFRSoS_E)($28)
+        move    $25,$2
+        nop
+
+.L10:
+        nop
+        move    $sp,$fp
+        ld      $31,40($sp)
+        ld      $fp,32($sp)
+        ld      $28,24($sp)
+        daddiu  $sp,$sp,48
+        j       $31
+        nop
+
+__static_initialization_and_destruction_0(int, int):
+        daddiu  $sp,$sp,-48
+        sd      $31,40($sp)
+        sd      $fp,32($sp)
+        sd      $28,24($sp)
+        move    $fp,$sp
+        lui     $28,%hi(%neg(%gp_rel(__static_initialization_and_destruction_0(int, int))))
+        daddu   $28,$28,$25
+        daddiu  $28,$28,%lo(%neg(%gp_rel(__static_initialization_and_destruction_0(int, int))))
+        move    $3,$4
+        move    $2,$5
+        sll     $3,$3,0
+        sw      $3,0($fp)
+        sll     $2,$2,0
+        sw      $2,4($fp)
+        lw      $3,0($fp)
+        li      $2,1                        # 0x1
+        bne     $3,$2,.L13
+        nop
+
+        lw      $3,4($fp)
+        li      $2,65535                    # 0xffff
+        bne     $3,$2,.L13
+        nop
+
+        ld      $2,%got_page(_ZStL8__ioinit)($28)
+        daddiu  $4,$2,%got_ofst(_ZStL8__ioinit)
+        ld      $2,%call16(_ZNSt8ios_base4InitC1Ev)($28)
+        move    $25,$2
+        nop
+
+        ld      $6,%got_disp(__dso_handle)($28)
+        ld      $2,%got_page(_ZStL8__ioinit)($28)
+        daddiu  $5,$2,%got_ofst(_ZStL8__ioinit)
+        ld      $4,%got_disp(_ZNSt8ios_base4InitD1Ev)($28)
+        ld      $2,%call16(__cxa_atexit)($28)
+        move    $25,$2
+        nop
+
+.L13:
+        nop
+        move    $sp,$fp
+        ld      $31,40($sp)
+        ld      $fp,32($sp)
+        ld      $28,24($sp)
+        daddiu  $sp,$sp,48
+        j       $31
+        nop
+
+_GLOBAL__sub_I_main:
+        daddiu  $sp,$sp,-32
+        sd      $31,24($sp)
+        sd      $fp,16($sp)
+        sd      $28,8($sp)
+        move    $fp,$sp
+        lui     $28,%hi(%neg(%gp_rel(_GLOBAL__sub_I_main)))
+        daddu   $28,$28,$25
+        daddiu  $28,$28,%lo(%neg(%gp_rel(_GLOBAL__sub_I_main)))
+        li      $5,65535                    # 0xffff
+        li      $4,1                        # 0x1
+        ld      $2,%got_page(__static_initialization_and_destruction_0(int, int))($28)
+        daddiu  $2,$2,%got_ofst(__static_initialization_and_destruction_0(int, int))
+        move    $25,$2
+        nop
+
+        move    $sp,$fp
+        ld      $31,24($sp)
+        ld      $fp,16($sp)
+        ld      $28,8($sp)
+        daddiu  $sp,$sp,32
+        j       $31
+        nop
