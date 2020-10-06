@@ -94,7 +94,7 @@
  li										$5,         1
     beq			$8,          $5,								mMBcbvYPhzwADlpk
 										add $5,										$5,						1
-				j      deadcode
+				j      AykwIZGTBfuHDzRU
 									addiu								$29,$29,-8
  sw    $30,4($29)
 										move  $30,$29
@@ -103,7 +103,7 @@
 							lw				$30,4($29)
   addiu $29,$29,8
 							jr				$31
-    deadcode:
+    AykwIZGTBfuHDzRU:
 	beq							$8,          $5,			kWCuOrpAlURPfTim
  add    $5,         $5,      1
    beq   $8,							$5, UBLYWcQaEegPKnsz
