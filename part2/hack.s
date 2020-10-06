@@ -1,14 +1,13 @@
    
     .data
-firsTPrompt:	.asciiz "\nPlease enter a value: "
-firstPrompt:	.asciiz "\nEnter 1, 2, or 3: "
-f1rstPr0pmt:	.asciiz "\nEnter a value: "
-firtPrompt:	    .asciiz "\nThe new value is: "
+choicePrompt:	.asciiz "\nEnter 1, 2, or 3: "
+valuePrompt:	.asciiz "\nEnter a value: "
+outputMessage:  .asciiz "\nThe new value is: "
     
     .text
 main:
     li	$v0, 4
-    la	$a0, firstPrompt
+    la	$a0, choicePrompt
     syscall
     li	$v0, 5
     syscall
@@ -17,7 +16,7 @@ main:
     addi	$s6, $zero, 68421
     jal	jump3
     li	$v0, 4
-    la	$a0, firtPrompt
+    la	$a0, outputMessage
     syscall
     li	$v0, 1
     move	$a0, $s1
@@ -28,7 +27,7 @@ main:
 jump2:
     addi,	$t3, $zero, 2320
     li	$v0,	4
-    la	$a0, f1rstPr0pmt
+    la	$a0, valuePrompt
     syscall
     li	$v0, 5
     syscall
@@ -44,7 +43,7 @@ jump3:
 jump4:
     addi,	$t7, $zero, 73
     li	$v0, 4
-    la	$a0, f1rstPr0pmt
+    la	$a0, valuePrompt
     syscall
     li	$v0, 5
     syscall
@@ -55,7 +54,7 @@ jump4:
 jump5:
     addi,	$t5, $zero, 20
     li	$v0, 4
-    la	$a0, f1rstPr0pmt
+    la	$a0, valuePrompt
     syscall
     li	$v0, 5
     syscall
