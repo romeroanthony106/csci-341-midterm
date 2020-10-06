@@ -1,160 +1,134 @@
-.data
-.lxYORotaEvcPrMSC: 																																																.asciiz "Choose rock, paper, or scissors:\n 1: Rock\n 2: Paper\n 3: Scissors\n"
-.zOJNqFjsvMAaDKWl:
-																																																																																						.asciiz "You lost 3 times. Computer wins! \n"	
-																																																						.YGQFwCTejvIVduXH: .asciiz "          __         .' '. \n"
-																																																		.zndWUbHBfwXMAmSs: .asciiz "        _/__)        .   .       . \n"
-																																										.KucUOAeCWmDlgNIV: .asciiz "       (8|)_}}- .      .        . \n"
-																																																							.czvdQfBICEuhqjsm: .asciiz "        `\__)    '. . ' ' .  . ' \n"
-
-.JeBCfNyibSjYRFHK:
-																																																																			.asciiz "The computer chose paper.\n"
-	.ZCBmXPMvKpSotixs:
-																																																	.asciiz "Playing best two out of three rock, paper, scissors rounds\n"
-																.aliNnvgRYfSmAZEw:
-																																																									.asciiz "The computer chose scissors.\n"
-	
-																							.TbzpWrqkIhuMaelV:
-																																				.asciiz "The computer chose rock.\n"
-	
-								.PqEvmbQHcDLUGtna:
-																																														.asciiz "Invalid number. You forfeit this round by default.\n"
-																																																																		.IqnDxMwJjOzpHkgZ:									.asciiz										"You lose!\n\n"
-																																								.vWTUXknIxwAHPret: .asciiz 																																	"You win!\n\n"
-	
-
-	
-.text
-
-
-NdIeVuEKngHkqPvj:
-la	$4,	.ZCBmXPMvKpSotixs 
-	li	$2,	4  	  
-syscall
-
-la	$4,	.YGQFwCTejvIVduXH 
-	li	$2,	4  	  
-syscall
-j vixPcLCsmOaqJhUZ
-        addiu   $29,$29,-24
-        sw      $30,20($29)
-        move    $30,$29
-        li      $2,327680
-        ori     $2,$2,0xdfb8
-        sw      $2,8($30)
-        lw      $2,8($30)
-        nop
-        sra     $2,$2,13
-        sw      $2,8($30)
-        lw      $3,8($30)
-        nop
-        move    $2,$3
-        sll     $2,$2,1
-        addu    $2,$2,$3
-        sw      $2,8($30)
-        lw      $2,8($30)
-        move    $29,$30
-        lw      $30,20($29)
-        addiu   $29,$29,24
-        jr       $31
-        nop
-XgyMAaVWDHnzJcGf:
-la	$4,	.zndWUbHBfwXMAmSs 
-	li	$2,	4  	  
-syscall
-la	$4,	.KucUOAeCWmDlgNIV 
-	li	$2,	4  	  
-syscall
-
-li $5, 																																					3  #$5 : upper lim of rand int
-la	$4,	.czvdQfBICEuhqjsm 
-	li	$2,	4  	  
-syscall
-li	$2, 42  
-																																											li $16, 0
-syscall
-
-tkKjflmbyxJdDEQa:
-	jal ZTeWsfVUzuiYGktc
-add $16, $16,	1
-	beq	 $16,	 3, BGqZWkbmzjCnlghI
-j 	tkKjflmbyxJdDEQa
-
-BGqZWkbmzjCnlghI:
-
-	la 	$4, .zOJNqFjsvMAaDKWl
-li $2, 	4
-	syscall
-j ehDCYISxHXAbNstK
-vixPcLCsmOaqJhUZ:
-j XgyMAaVWDHnzJcGf
-ehDCYISxHXAbNstK:
-li $2, 			10	
-syscall
-
-j ZTeWsfVUzuiYGktc
-
-xbMXedTfsPWQuiqL:
-la $4, .IqnDxMwJjOzpHkgZ
-li $2, 4  	   
-syscall
-j hGRPgKTciobLNWqu
-
-ZTeWsfVUzuiYGktc:
-la $4, .lxYORotaEvcPrMSC 
-li $2, 4  	   
-syscall
-
-li $2, 5	   
-syscall
-move $8, $2
-
-li $5, 1
-beq $8, $5, mMBcbvYPhzwADlpk
-add $5, $5, 1
-j deadcode
-        addiu   $29,$29,-8
-        sw      $30,4($29)
-        move    $30,$29
-        move    $2,$0
-        move    $29,$30
-        lw      $30,4($29)
-        addiu   $29,$29,8
-        jr       $31
-deadcode:
-beq $8, $5, kWCuOrpAlURPfTim
-add $5, $5, 1	
-
-beq $8, $5, UBLYWcQaEegPKnsz
-add $5, $5, 1	
-
-beq $8, $5, wTQokvlhiMApCOWs
-add $5, $5, 1
-
-hGRPgKTciobLNWqu:
-jr $ra
-
-
-mMBcbvYPhzwADlpk:
-la $4, .JeBCfNyibSjYRFHK
-li $2, 4
-syscall
-j xbMXedTfsPWQuiqL
-
-kWCuOrpAlURPfTim:
-la $4, .aliNnvgRYfSmAZEw
-li $2, 4
-syscall
-j xbMXedTfsPWQuiqL
-
-UBLYWcQaEegPKnsz:
-la $4, .TbzpWrqkIhuMaelV
-li $2, 4
-syscall
-j xbMXedTfsPWQuiqL
-
-wTQokvlhiMApCOWs:
-la $4, .PqEvmbQHcDLUGtna
-li $2, 4
-syscall
-j xbMXedTfsPWQuiqL
+         .data
+							.lxYORotaEvcPrMSC:       	.asciiz			"Choose rock, paper, or scissors:\n 1: Rock\n 2: Paper\n 3: Scissors\n"
+					.zOJNqFjsvMAaDKWl:
+        .asciiz							"You lost 3 times. Computer wins! \n"
+        .YGQFwCTejvIVduXH:     .asciiz          " __ .' '. \n"
+  .zndWUbHBfwXMAmSs:					.asciiz						" _/__) . . . \n"
+						.KucUOAeCWmDlgNIV:							.asciiz	" (8|)_}}- . . . \n"
+		.czvdQfBICEuhqjsm:   .asciiz								" `\__) '. . ' ' . . ' \n"
+				.JeBCfNyibSjYRFHK:
+									.asciiz										"The computer chose paper.\n"
+					.ZCBmXPMvKpSotixs:
+								.asciiz						"Playing best two out of three rock, paper, scissors rounds\n"
+		.aliNnvgRYfSmAZEw:
+					.asciiz       "The computer chose scissors.\n"
+      .TbzpWrqkIhuMaelV:
+        .asciiz	"The computer chose rock.\n"
+	.PqEvmbQHcDLUGtna:
+  .asciiz								"Invalid number. You forfeit this round by default.\n"
+							.IqnDxMwJjOzpHkgZ:	.asciiz	"You lose!\n\n"
+       .vWTUXknIxwAHPret:	.asciiz      	"You win!\n\n"
+   .text
+		NdIeVuEKngHkqPvj:
+	la	$4,	.ZCBmXPMvKpSotixs
+ li	$2,	4
+        syscall
+ la	$4,	.YGQFwCTejvIVduXH
+ li	$2,	4
+        syscall
+					j	vixPcLCsmOaqJhUZ
+			addiu				$29,$29,-24
+   sw						$30,20($29)
+									move       $30,$29
+								li   $2,327680
+      ori     $2,$2,0xdfb8
+				sw						$2,8($30)
+						lw     $2,8($30)
+				nop
+				sra	$2,$2,13
+      sw									$2,8($30)
+ lw        $3,8($30)
+         nop
+			move					$2,$3
+										sll       $2,$2,1
+								addu        $2,$2,$3
+								sw								$2,8($30)
+							lw          $2,8($30)
+					move					$29,$30
+							lw       $30,20($29)
+        addiu									$29,$29,24
+         jr  $31
+   nop
+        XgyMAaVWDHnzJcGf:
+  la	$4,	.zndWUbHBfwXMAmSs
+										li	$2,	4
+					syscall
+ la	$4,	.KucUOAeCWmDlgNIV
+							li	$2,	4
+      syscall
+       li	$5,						3         #$5       :        upper									lim					of								rand		int
+          la	$4,	.czvdQfBICEuhqjsm
+			li	$2,	4
+							syscall
+									li	$2,        42
+			li         $16,			0
+				syscall
+      tkKjflmbyxJdDEQa:
+          jal        ZTeWsfVUzuiYGktc
+       add						$16,  $16,	1
+ beq										$16,	     3,          BGqZWkbmzjCnlghI
+       j         	tkKjflmbyxJdDEQa
+     BGqZWkbmzjCnlghI:
+	la			$4,  .zOJNqFjsvMAaDKWl
+        li        $2,		4
+        syscall
+			j     ehDCYISxHXAbNstK
+      vixPcLCsmOaqJhUZ:
+   j			XgyMAaVWDHnzJcGf
+       ehDCYISxHXAbNstK:
+	li        $2,      	10
+        syscall
+									j			ZTeWsfVUzuiYGktc
+								xbMXedTfsPWQuiqL:
+        la			$4,					.IqnDxMwJjOzpHkgZ
+   li									$2,								4
+			syscall
+        j  hGRPgKTciobLNWqu
+         ZTeWsfVUzuiYGktc:
+      la       $4,										.lxYORotaEvcPrMSC
+        li          $2,   4
+					syscall
+							li  $2,    5
+		syscall
+			move $8,     $2
+ li										$5,         1
+    beq			$8,          $5,								mMBcbvYPhzwADlpk
+										add $5,										$5,						1
+				j      deadcode
+									addiu								$29,$29,-8
+ sw    $30,4($29)
+										move  $30,$29
+         move  $2,$0
+    move  $29,$30
+							lw				$30,4($29)
+  addiu $29,$29,8
+							jr				$31
+    deadcode:
+	beq							$8,          $5,			kWCuOrpAlURPfTim
+ add    $5,         $5,      1
+   beq   $8,							$5, UBLYWcQaEegPKnsz
+   add									$5,      $5,         1
+          beq       $8,      $5,							wTQokvlhiMApCOWs
+ add         $5, $5,									1
+       hGRPgKTciobLNWqu:
+        jr							$ra
+							mMBcbvYPhzwADlpk:
+						la								$4,		.JeBCfNyibSjYRFHK
+    li $2,     4
+				syscall
+			j							xbMXedTfsPWQuiqL
+ kWCuOrpAlURPfTim:
+										la							$4,  .aliNnvgRYfSmAZEw
+					li          $2,			4
+    syscall
+										j  xbMXedTfsPWQuiqL
+				UBLYWcQaEegPKnsz:
+					la	$4,								.TbzpWrqkIhuMaelV
+								li						$2,          4
+						syscall
+				j        xbMXedTfsPWQuiqL
+					wTQokvlhiMApCOWs:
+    la	$4,         .PqEvmbQHcDLUGtna
+     li					$2,					4
+			syscall
+    j							xbMXedTfsPWQuiqL
