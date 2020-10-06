@@ -56,7 +56,7 @@
  la	$4,	.KucUOAeCWmDlgNIV
 							li	$2,	4
       syscall
-       li	$5,						3         #$5       :        upper									lim					of								rand		int
+       li	$5,						3   
           la	$4,	.czvdQfBICEuhqjsm
 			li	$2,	4
 							syscall
