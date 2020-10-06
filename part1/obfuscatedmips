@@ -1,5 +1,5 @@
 .data
-.LC1: 																																																.asciiz "Enter 1, 2, or 3, for R/P/S: \n"
+.LC1: 																																																.asciiz "Choose rock, paper, or scissors:\n 1: Rock\n 2: Paper\n 3: Scissors\n"
 .LC6:
 																																																																																						.asciiz "You lost 3 times. Computer wins! \n"	
 																																																						.BEE1: .asciiz "          __         .' '. \n"
@@ -8,17 +8,19 @@
 																																																							.BEE4: .asciiz "        `\__)    '. . ' ' .  . ' \n"
 
 .LC2:
-																																																																			.asciiz "The computer chose paper. You lose \n"
+																																																																			.asciiz "The computer chose paper.\n"
 	.LC0:
-																																																	.asciiz "Playing 3 rounds:\n"
+																																																	.asciiz "Playing best two out of three rock, paper, scissors rounds\n"
 																.LC3:
-																																																									.asciiz "The computer chose scissors. You lose \n"
+																																																									.asciiz "The computer chose scissors.\n"
 	
 																							.LC4:
-																																				.asciiz "The computer chose rock. You lose. \n"
+																																				.asciiz "The computer chose rock.\n"
 	
 								.LC5:
-																																														.asciiz "Invalid number. You forfeit this round by default. \n"
+																																														.asciiz "Invalid number. You forfeit this round by default.\n"
+																																																																		.LC7:									.asciiz										"You lose!\n\n"
+																																								.LC8: .asciiz 																																	"You win!\n\n"
 	
 
 	
@@ -26,25 +28,25 @@
 
 
 main:
-la	$a0,	.LC0 
-	li	$v0,	4  	  
+la	$4,	.LC0 
+	li	2,	4  	  
 syscall
 
-la	$a0,	.BEE1 
-	li	$v0,	4  	  
+la	$4,	.BEE1 
+	li	2,	4  	  
 syscall
-la	$a0,	.BEE2 
-	li	$v0,	4  	  
+la	$4,	.BEE2 
+	li	2,	4  	  
 syscall
-la	$a0,	.BEE3 
-	li	$v0,	4  	  
+la	$4,	.BEE3 
+	li	2,	4  	  
 syscall
 
 li $a1, 																																					3  #$a1 : upper lim of rand int
-la	$a0,	.BEE4 
-	li	$v0,	4  	  
+la	$4,	.BEE4 
+	li	2,	4  	  
 syscall
-li	$v0, 42  
+li	2, 42  
 																																											li $s0, 0
 syscall
 
@@ -56,27 +58,30 @@ j 	loopRound
 
 end:
 
-	la 	$a0, .LC6
-li $v0, 	4
+	la 	$4, .LC6
+li 2, 	4
 	syscall
 
 
-li $v0, 			10	
+li 2, 			10	
 syscall
 
-#brandon start here-ish?
-#ive been tabbing random things way over to the right
-#adding visual/code clutter
-#added RNG lines
+j playRound
+
+printLose:
+la $4, .LC7
+li 2, 4
+syscall
+j returnTest
 
 playRound:
-la $a0, .LC1 
-li $v0, 4  	   
+la $4, .LC1 
+li 2, 4  	   
 syscall
 
-li $v0, 5	   
+li 2, 5	   
 syscall
-move $t0, $v0
+move $t0, 2
 
 li $a1, 1
 beq $t0, $a1, cond1
@@ -96,25 +101,25 @@ jr $ra
 
 
 cond1:
-la $a0, .LC2
-li $v0, 4
+la $4, .LC2
+li 2, 4
 syscall
-j returnTest
+j printLose
 
 cond2:
-la $a0, .LC3
-li $v0, 4
+la $4, .LC3
+li 2, 4
 syscall
-j returnTest
+j printLose
 
 cond3:
-la $a0, .LC4
-li $v0, 4
+la $4, .LC4
+li 2, 4
 syscall
-j returnTest
+j printLose
 
 cond4:
-la $a0, .LC5
-li $v0, 4
+la $4, .LC5
+li 2, 4
 syscall
-j returnTest
+j printLose
