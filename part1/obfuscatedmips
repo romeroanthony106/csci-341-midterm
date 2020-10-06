@@ -1,81 +1,80 @@
 .data
-.LC1: 																																																.asciiz "Choose rock, paper, or scissors:\n 1: Rock\n 2: Paper\n 3: Scissors\n"
-.LC6:
+.lxYORotaEvcPrMSC: 																																																.asciiz "Choose rock, paper, or scissors:\n 1: Rock\n 2: Paper\n 3: Scissors\n"
+.zOJNqFjsvMAaDKWl:
 																																																																																						.asciiz "You lost 3 times. Computer wins! \n"	
-																																																						.BEE1: .asciiz "          __         .' '. \n"
-																																																		.BEE2: .asciiz "        _/__)        .   .       . \n"
-																																										.BEE3: .asciiz "       (8|)_}}- .      .        . \n"
-																																																							.BEE4: .asciiz "        `\__)    '. . ' ' .  . ' \n"
+																																																						.YGQFwCTejvIVduXH: .asciiz "          __         .' '. \n"
+																																																		.zndWUbHBfwXMAmSs: .asciiz "        _/__)        .   .       . \n"
+																																										.KucUOAeCWmDlgNIV: .asciiz "       (8|)_}}- .      .        . \n"
+																																																							.czvdQfBICEuhqjsm: .asciiz "        `\__)    '. . ' ' .  . ' \n"
 
-.LC2:
+.JeBCfNyibSjYRFHK:
 																																																																			.asciiz "The computer chose paper.\n"
-	.LC0:
+	.ZCBmXPMvKpSotixs:
 																																																	.asciiz "Playing best two out of three rock, paper, scissors rounds\n"
-																.LC3:
+																.aliNnvgRYfSmAZEw:
 																																																									.asciiz "The computer chose scissors.\n"
 	
-																							.LC4:
+																							.TbzpWrqkIhuMaelV:
 																																				.asciiz "The computer chose rock.\n"
 	
-								.LC5:
+								.PqEvmbQHcDLUGtna:
 																																														.asciiz "Invalid number. You forfeit this round by default.\n"
-																																																																		.LC7:									.asciiz										"You lose!\n\n"
-																																								.LC8: .asciiz 																																	"You win!\n\n"
+																																																																		.IqnDxMwJjOzpHkgZ:									.asciiz										"You lose!\n\n"
+																																								.vWTUXknIxwAHPret: .asciiz 																																	"You win!\n\n"
 	
 
 	
 .text
 
 
-main:
-la	$4,	.LC0 
+NdIeVuEKngHkqPvj:
+la	$4,	.ZCBmXPMvKpSotixs 
 	li	$2,	4  	  
 syscall
 
-la	$4,	.BEE1 
+la	$4,	.YGQFwCTejvIVduXH 
 	li	$2,	4  	  
 syscall
-la	$4,	.BEE2 
+la	$4,	.zndWUbHBfwXMAmSs 
 	li	$2,	4  	  
 syscall
-la	$4,	.BEE3 
+la	$4,	.KucUOAeCWmDlgNIV 
 	li	$2,	4  	  
 syscall
 
 li $5, 																																					3  #$5 : upper lim of rand int
-la	$4,	.BEE4 
+la	$4,	.czvdQfBICEuhqjsm 
 	li	$2,	4  	  
 syscall
 li	$2, 42  
 																																											li $16, 0
 syscall
 
-neoskgiu:
-	jal eoskgiun
+tkKjflmbyxJdDEQa:
+	jal ZTeWsfVUzuiYGktc
 add $16, $16,	1
-	beq	 $16,	 3, hgfhssfdsfss
-j 	neoskgiu
+	beq	 $16,	 3, BGqZWkbmzjCnlghI
+j 	tkKjflmbyxJdDEQa
 
-hgfhssfdsfss:
+BGqZWkbmzjCnlghI:
 
-	la 	$4, .LC6
+	la 	$4, .zOJNqFjsvMAaDKWl
 li $2, 	4
 	syscall
-
 
 li $2, 			10	
 syscall
 
-j eoskgiun
+j ZTeWsfVUzuiYGktc
 
-oskgiune:
-la $4, .LC7
-li $2, 4
+xbMXedTfsPWQuiqL:
+la $4, .IqnDxMwJjOzpHkgZ
+li $2, 4  	   
 syscall
-j skgiunes
+j hGRPgKTciobLNWqu
 
-eoskgiun:
-la $4, .LC1 
+ZTeWsfVUzuiYGktc:
+la $4, .lxYORotaEvcPrMSC 
 li $2, 4  	   
 syscall
 
@@ -84,42 +83,42 @@ syscall
 move $8, $2
 
 li $5, 1
-beq $8, $5, kgiuness
+beq $8, $5, mMBcbvYPhzwADlpk
 add $5, $5, 1
 
-beq $8, $5, giunessk
+beq $8, $5, kWCuOrpAlURPfTim
 add $5, $5, 1	
 
-beq $8, $5, iunesskg
+beq $8, $5, UBLYWcQaEegPKnsz
 add $5, $5, 1	
 
-beq $8, $5, unesskgi
+beq $8, $5, wTQokvlhiMApCOWs
 add $5, $5, 1
 
-skgiunes:
+hGRPgKTciobLNWqu:
 jr $ra
 
 
-kgiuness:
-la $4, .LC2
+mMBcbvYPhzwADlpk:
+la $4, .JeBCfNyibSjYRFHK
 li $2, 4
 syscall
-j oskgiune
+j xbMXedTfsPWQuiqL
 
-giunessk:
-la $4, .LC3
+kWCuOrpAlURPfTim:
+la $4, .aliNnvgRYfSmAZEw
 li $2, 4
 syscall
-j oskgiune
+j xbMXedTfsPWQuiqL
 
-iunesskg:
-la $4, .LC4
+UBLYWcQaEegPKnsz:
+la $4, .TbzpWrqkIhuMaelV
 li $2, 4
 syscall
-j oskgiune
+j xbMXedTfsPWQuiqL
 
-unesskgi:
-la $4, .LC5
+wTQokvlhiMApCOWs:
+la $4, .PqEvmbQHcDLUGtna
 li $2, 4
 syscall
-j oskgiune
+j xbMXedTfsPWQuiqL
