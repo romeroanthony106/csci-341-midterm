@@ -6,25 +6,35 @@ outputMessage:  .asciiz "\nThe new value is: "
     
     .text
 main:
+    # print choice prompt
     li	$v0, 4
     la	$a0, choicePrompt
     syscall
+
+    # get integer input
     li	$v0, 5
     syscall
-    addi	$s3, $zero, 58
-    addi	$s7, $zero, 230001894850037873749940
-    addi	$s6, $zero, 68421
-    jal	jump3
+
+    # call function
+    jal	conditionalMultiplier
+
+    # print output message
     li	$v0, 4
     la	$a0, outputMessage
     syscall
+
+    # print result
+    # thus, final result is stored in $s1
     li	$v0, 1
     move	$a0, $s1
     syscall
+
+    # exit program
     addi	$v0, $zero,	10
     syscall
 
-jump2:
+cond2:
+    # option 2
     addi,	$t3, $zero, 2320
     li	$v0,	4
     la	$a0, valuePrompt
@@ -35,12 +45,13 @@ jump2:
     mul	$s1, $s1, $t3
     jr	$ra
 
-jump3:
-    beq	$v0, 1, jump5
-    beq	$v0, 2, jump2
-    beq	$v0, 3, jump4
+conditionalMultiplier:
+    beq	$v0, 1, cond1
+    beq	$v0, 2, cond2
+    beq	$v0, 3, cond3 # if input is not 1, 2, or 3, default to input of 3
 
-jump4:
+cond3:
+    # option 3
     addi,	$t7, $zero, 73
     li	$v0, 4
     la	$a0, valuePrompt
@@ -51,7 +62,8 @@ jump4:
     mul	$s1, $s1, $t7
     jr	$ra
 
-jump5:
+cond1:
+    # option 1
     addi,	$t5, $zero, 20
     li	$v0, 4
     la	$a0, valuePrompt
