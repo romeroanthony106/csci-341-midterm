@@ -1,0 +1,6 @@
+1. Brendan McDonnell, Anthony Romero, and Cameron Vollrath for CSCI341 Midterm Part 2: Unhacked on 10/06/2020
+2. Spent about 90 minutes on it. 
+3. Python to clean up the visual clutter, identifying and removing red herrings,  cleaning up the visual clutter, and then reading the control flow.
+4. Didn't need help.
+5. Nothing needed improvement since it was straightforward.
+6. We think it was successful becuase the code we recieved was relatively simple and the result makes sense relative to the "unhacked" code.
