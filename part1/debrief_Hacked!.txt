@@ -1,0 +1,7 @@
+1. Cameron Vollrath, Brendan McDonnell, and  Anthony Romero for the CSCI341 Midterm Part 1: Hacked! on October 5th, 2020.
+2. This project took an estimated 4.5 hours between everyone's parts.
+3. We started when Anthony suggested a rock-paper-scissors game that couldn't be won. From there the C++ and MIPS code was drafted and passed around for multiple rounds of obfuscation. The approach to that changed from visual clutter to red herrings to restructuring that deliberately abused register convention. The code never needed much debugging, but constant compiling ensured that nothing went wrong without us knowing.
+4. Learning the MIPS procedure for random number generation required a little googling, but nothing else pushed the boundaries.
+5. Time wasn't a huge issue, but trying to find any meaningful ways to divert attention away from the inner workings of the code could have been improved if we had known to be thinking of them well in advance.
+6. Tabbing lines of code off screen and having horrible variable names is pretty amusing.
+7. I don't think we made any assumptions about this project or in our code beyond that they'll be expecting to be fooled.
