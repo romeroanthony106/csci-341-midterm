@@ -29,97 +29,97 @@
 
 main:
 la	$4,	.LC0 
-	li	2,	4  	  
+	li	$2,	4  	  
 syscall
 
 la	$4,	.BEE1 
-	li	2,	4  	  
+	li	$2,	4  	  
 syscall
 la	$4,	.BEE2 
-	li	2,	4  	  
+	li	$2,	4  	  
 syscall
 la	$4,	.BEE3 
-	li	2,	4  	  
+	li	$2,	4  	  
 syscall
 
-li $a1, 																																					3  #$a1 : upper lim of rand int
+li $5, 																																					3  #$5 : upper lim of rand int
 la	$4,	.BEE4 
-	li	2,	4  	  
+	li	$2,	4  	  
 syscall
-li	2, 42  
-																																											li $s0, 0
+li	$2, 42  
+																																											li $16, 0
 syscall
 
-loopRound:
-	jal playRound
-add $s0, $s0,	1
-	beq	 $s0,	 3, end
-j 	loopRound
+neoskgiu:
+	jal eoskgiun
+add $16, $16,	1
+	beq	 $16,	 3, hgfhssfdsfss
+j 	neoskgiu
 
-end:
+hgfhssfdsfss:
 
 	la 	$4, .LC6
-li 2, 	4
+li $2, 	4
 	syscall
 
 
-li 2, 			10	
+li $2, 			10	
 syscall
 
-j playRound
+j eoskgiun
 
-printLose:
+oskgiune:
 la $4, .LC7
-li 2, 4
+li $2, 4
 syscall
-j returnTest
+j skgiunes
 
-playRound:
+eoskgiun:
 la $4, .LC1 
-li 2, 4  	   
+li $2, 4  	   
 syscall
 
-li 2, 5	   
+li $2, 5	   
 syscall
-move $t0, 2
+move $8, $2
 
-li $a1, 1
-beq $t0, $a1, cond1
-add $a1, $a1, 1
+li $5, 1
+beq $8, $5, kgiuness
+add $5, $5, 1
 
-beq $t0, $a1, cond2
-add $a1, $a1, 1	
+beq $8, $5, giunessk
+add $5, $5, 1	
 
-beq $t0, $a1, cond3
-add $a1, $a1, 1	
+beq $8, $5, iunesskg
+add $5, $5, 1	
 
-beq $t0, $a1, cond4
-add $a1, $a1, 1
+beq $8, $5, unesskgi
+add $5, $5, 1
 
-returnTest:
+skgiunes:
 jr $ra
 
 
-cond1:
+kgiuness:
 la $4, .LC2
-li 2, 4
+li $2, 4
 syscall
-j printLose
+j oskgiune
 
-cond2:
+giunessk:
 la $4, .LC3
-li 2, 4
+li $2, 4
 syscall
-j printLose
+j oskgiune
 
-cond3:
+iunesskg:
 la $4, .LC4
-li 2, 4
+li $2, 4
 syscall
-j printLose
+j oskgiune
 
-cond4:
+unesskgi:
 la $4, .LC5
-li 2, 4
+li $2, 4
 syscall
-j printLose
+j oskgiune
