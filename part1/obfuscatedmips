@@ -1,50 +1,73 @@
 .data
-.LC0:
-	.asciiz "playing 3 rounds\n"
-	
-.LC1:
-	.asciiz "enter 1, 2, or 3, for rps \n"
-	
-.LC2:
-	.asciiz "computer chooses paper, you loosen \n"
-	
-.LC3:
-	.asciiz "computer chooses scissors, you loose \n"
-	
-.LC4:
-	.asciiz "computer chooses rock, you loose \n"
-	
-.LC5:
-	.asciiz "you didn't a valid number. you forfeit and loose by default \n"
-	
+.LC1: 																																																.asciiz "Enter 1, 2, or 3, for R/P/S: \n"
 .LC6:
-	.asciiz "you lost 3 times, computer wins! \n"
+																																																																																						.asciiz "You lost 3 times. Computer wins! \n"	
+																																																						.BEE1: .asciiz "          __         .' '. \n"
+																																																		.BEE2: .asciiz "        _/__)        .   .       . \n"
+																																										.BEE3: .asciiz "       (8|)_}}- .      .        . \n"
+																																																							.BEE4: .asciiz "        `\__)    '. . ' ' .  . ' \n"
+
+.LC2:
+																																																																			.asciiz "The computer chose paper. You lose \n"
+	.LC0:
+																																																	.asciiz "Playing 3 rounds:\n"
+																.LC3:
+																																																									.asciiz "The computer chose scissors. You lose \n"
+	
+																							.LC4:
+																																				.asciiz "The computer chose rock. You lose. \n"
+	
+								.LC5:
+																																														.asciiz "Invalid number. You forfeit this round by default. \n"
+	
+
 	
 .text
 
 
 main:
-la $a0, .LC0 
-li $v0, 4  	  
+la	$a0,	.LC0 
+	li	$v0,	4  	  
 syscall
 
-li $s0, 0
+la	$a0,	.BEE1 
+	li	$v0,	4  	  
+syscall
+la	$a0,	.BEE2 
+	li	$v0,	4  	  
+syscall
+la	$a0,	.BEE3 
+	li	$v0,	4  	  
+syscall
+
+li $a1, 																																					3  #$a1 : upper lim of rand int
+la	$a0,	.BEE4 
+	li	$v0,	4  	  
+syscall
+li	$v0, 42  
+																																											li $s0, 0
+syscall
+
 loopRound:
-jal playRound
-add $s0, $s0, 1
-beq $s0, 3, end
-j loopRound
+	jal playRound
+add $s0, $s0,	1
+	beq	 $s0,	 3, end
+j 	loopRound
 
 end:
 
-la $a0, .LC6
-li $v0, 4
+	la 	$a0, .LC6
+li $v0, 	4
+	syscall
+
+
+li $v0, 			10	
 syscall
 
-
-li $v0, 10	
-syscall
-
+#brandon start here-ish?
+#ive been tabbing random things way over to the right
+#adding visual/code clutter
+#added RNG lines
 
 playRound:
 la $a0, .LC1 
